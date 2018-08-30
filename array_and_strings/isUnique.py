@@ -32,7 +32,3 @@ if __name__ == "__main__":
   print(isUnique("abcda"))
   print(isUniqueWithSet("abcd"))
   print(isUniqueWithSet("abcda"))
-
-
-
-
