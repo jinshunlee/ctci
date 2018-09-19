@@ -2,10 +2,10 @@
 # A palindrome is a word or phrase that is the same forwards and backwards. A permutation
 # is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 
-# Time O(n) 
-# Space O(n)
 from collections import Counter
 
+# Time O(n) 
+# Space O(n)
 def palindromePermutation(str):
   characters = {}
   for char in str.replace(" ","").lower():
