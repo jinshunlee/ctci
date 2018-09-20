@@ -25,6 +25,8 @@ def zeroMatrix(matrix):
         matrix[i][j] = 0
   return matrix
 
+# Time O(M * N)
+# Space O(1)
 def zeroMatrixInPlace(matrix):
   rowLength = len(matrix)
   colLength = len(matrix[0])
