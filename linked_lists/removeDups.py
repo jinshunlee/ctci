@@ -2,16 +2,7 @@
 # FOLLOW UP
 # How would you solve this problem if a temporary buffer is not allowed?
 
-
-class Node:
-    def __init__(self, value, next):
-        self.value = value
-        self.next = next
-
-    def toString(self):
-        while self:
-            print(self.value)
-            self = self.next
+from LinkedList import LinkedList
 
 # Time O(n)
 # Space O(n)
@@ -19,13 +10,13 @@ class Node:
 
 def removeDuplicates(xs):
     seen = set()
-    cur = xs
+    cur = xs.head
     prev = None
     while cur is not None:
-        if cur.value in seen:
+        if cur.data in seen:
             prev.next = cur.next
         else:
-            seen.add(cur.value)
+            seen.add(cur.data)
             prev = cur
         cur = cur.next
     return xs
@@ -35,12 +26,12 @@ def removeDuplicates(xs):
 
 
 def removeDuplicatesFollowUp(xs):
-    pt1 = xs
+    pt1 = xs.head
     while (pt1.next is not None):
-        cur_value = pt1.value
+        cur_value = pt1.data
         pt2 = pt1.next
         while(pt2.next is not None):
-            if cur_value == pt2.value:
+            if cur_value == pt2.data:
                 pt1.next1 = pt1.next.next
             else:
                 pt2 = pt2.next
@@ -49,9 +40,19 @@ def removeDuplicatesFollowUp(xs):
 
 
 if __name__ == "__main__":
-    xs = Node(1, Node(3, Node(3, Node(1, Node(5, None)))))
-    ys = Node(1, Node(2, Node(3, Node(4, Node(5, None)))))
-    removeDuplicates(xs).toString()
-    removeDuplicatesFollowUp(xs).toString()
-    removeDuplicates(ys).toString()
-    removeDuplicatesFollowUp(ys).toString()
+    xs = LinkedList()
+    xs.add(1)
+    xs.add(3)
+    xs.add(3)
+    xs.add(1)
+    xs.add(5)
+    ys = LinkedList()
+    ys.add(1)
+    ys.add(2)
+    ys.add(3)
+    ys.add(4)
+    ys.add(5)
+    removeDuplicates(xs).print_list()
+    removeDuplicates(ys).print_list()
+    removeDuplicatesFollowUp(xs).print_list()
+    removeDuplicatesFollowUp(ys).print_list()
