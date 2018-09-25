@@ -7,6 +7,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.length = 0
 
     def add(self, data):
         new_node = Node(data)
@@ -17,6 +18,7 @@ class LinkedList:
             while cur.next is not None:
                 cur = cur.next
             cur.next = new_node
+        self.length += 1
 
     def print_list(self):
         lst = []
@@ -25,11 +27,3 @@ class LinkedList:
             lst.append(cur.data)
             cur = cur.next
         print(lst)
-
-    def length(self):
-        count = 0
-        cur = self.head
-        while cur is not None:
-            count += 1
-            cur = cur.next
-        return count
