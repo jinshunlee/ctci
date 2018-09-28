@@ -20,6 +20,17 @@ class LinkedList:
             cur.next = new_node
         self.length += 1
 
+    def reverse(self):
+        cur = self.head
+        prev = None
+        while cur:
+            nxt = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nxt
+        self.head = prev
+        return self
+
     def print_list(self):
         lst = []
         cur = self.head
