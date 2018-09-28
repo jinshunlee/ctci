@@ -15,21 +15,21 @@ from LinkedList import LinkedList
 def sumLists(xs, ys):
     pt_x = xs.head
     pt_y = ys.head
-    zs = LinkedList()
-    additional = 0
+    result = LinkedList()
+    carry = 0
 
     while pt_x or pt_y :
         x = pt_x.data if pt_x else 0
         y = pt_y.data if pt_y else 0 
-        zs.add((x + y + additional) % 10)
-        additional = (x + y + additional) / 10
+        result.add((x + y + carry) % 10)
+        carry = (x + y + carry) / 10
         if pt_x:
             pt_x = pt_x.next
         if pt_y:
             pt_y = pt_y.next
-    if additional == 1:
-        zs.add(1)
-    return zs
+    if carry > 0:
+        result.add(1)
+    return result
 
 if __name__ == "__main__":
     xs = LinkedList()
