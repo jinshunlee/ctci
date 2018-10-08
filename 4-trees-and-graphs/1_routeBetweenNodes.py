@@ -1,23 +1,24 @@
 # Route Between Nodes: Given a directed graph, design an algorithm to find out whether there is a
 # route between two nodes.
 
+from collections import deque
+
 # Time O(V + E)
 # Space O(V)
 
 
 def BFS(start, end, graph):
-    queue = [start]
-    visited = [start]
+    queue = deque([start])
+    visited = set()
 
     while queue:
-        cur = queue.pop(0)
+        cur = queue.popleft()
         if cur == end:
             return True
-        for node in graph.get(cur, []):
-            if not node in visited:
-                visited.append(node)
-                queue.append(node)
-
+        for vertex in graph.get(cur, []):
+            if vertex not in visited:
+                visited.add(vertex)
+                queue.append(vertex)
     return False
 
 
